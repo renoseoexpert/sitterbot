@@ -18,4 +18,5 @@
 class Kid < ActiveRecord::Base
   belongs_to :parent, class_name: 'User', foreign_key: :parent_id
   validates :nickname, :parent, presence: true
+  validates :nickname, uniqueness: { scope: :parent }
 end

@@ -1,2 +1,8 @@
-<h1>Kids#edit</h1>
-<p>Find me in app/views/kids/edit.html.erb</p>
+<article class="content item-editor-page">
+  <div class="title-block">
+    <h3 class="title">
+      Edit <%= @kid.nickname %> <span class="sparkline bar" data-type="bar"></span>
+    </h3>
+  </div>
+  <%= render partial: 'form', locals: { kid: @kid } %>
+</article>

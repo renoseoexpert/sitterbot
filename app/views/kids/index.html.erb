@@ -1,2 +1,40 @@
-<h1>Kids#index</h1>
-<p>Find me in app/views/kids/index.html.erb</p>
+<article class="content items-list-page">
+  <div class="title-search-block">
+    <div class="title-block">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="title">
+            Kids
+            <a href="/kids/new" class="btn btn-primary btn-sm rounded-s">
+              Add New
+            </a>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>Nickname</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @kids.each do |kid| %>
+              <tr>
+                <td><%= link_to kid.nickname, kid %></td>
+                <td>
+                  <%= button_to "delete", kid_path(kid), method: :delete, class: "btn btn-sm btn-danger-outline" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</article>

@@ -7,9 +7,10 @@ class KidsController < ApplicationController
     @kid = current_user.kids.new(kid_params)
 
     if @kid.save
-      render json: @kid
+      redirect_to kids_path
     else
-      render json: @kid.errors.full_messages, status: :unprocessable_entity
+      flash.now[:errors] = @kid.errors.full_messages
+      render :new
     end
   end
 
@@ -23,6 +24,12 @@ class KidsController < ApplicationController
 
   def show
     @kid = current_user.kids.find(params[:id])
+  end
+
+  def destroy
+    @kid = current_user.kids.find(params[:id])
+    @kid.try(:destroy)
+    redirect_to :back
   end
 
   private
