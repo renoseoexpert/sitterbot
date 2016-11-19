@@ -27,9 +27,9 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'newrelic_rpm'
 gem 'figaro'
 gem 'stripe'
-gem 'resque', '~> 1.22.0'
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
-gem 'resque-scheduler'
+
 gem 'twilio-ruby'
 
 # Use Capistrano for deployment
@@ -47,4 +47,9 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+	gem 'resque', '~> 1.22.0'
+	gem 'resque-scheduler'
 end
