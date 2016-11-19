@@ -32,18 +32,17 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Something like this:?
-  # def subscribed?
-  #   trial? || subscription
-  # end
-  #
-  # def trial_days_left
-  #   (created_at.to_date - 14.days.ago.to_date).to_i
-  # end
-  #
-  # def trial?
-  #   created_at > 14.days.ago
-  # end
+  def subscribed?
+    trial? || subscription
+  end
+
+  def trial_days_left
+    (created_at.to_date - 14.days.ago.to_date).to_i
+  end
+
+  def trial?
+    created_at > 14.days.ago
+  end
 
   def password=(other)
     @password = other
