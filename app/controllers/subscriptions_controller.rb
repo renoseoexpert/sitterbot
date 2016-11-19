@@ -18,7 +18,7 @@ class SubscriptionsController < ApplicationController
     service = StartSubscription.new(current_user, subscription_params)
     service.call
     if service.valid?
-      login(service.user.user)
+      login(service.user)
       redirect_to '/subscribed'
     else
       flash.now[:errors] = service.errors

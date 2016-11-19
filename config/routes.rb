@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     'start',
     'welcome',
     'terms',
-    'privacy'
+    'privacy',
+    'subscribed'
   ].each do |action|
     get "/#{ action }", to: "static_pages##{ action }"
   end

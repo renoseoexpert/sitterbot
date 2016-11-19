@@ -7,6 +7,10 @@ class StaticPagesController < ApplicationController
     render layout: 'application'
   end
 
+  def subscribed
+    render layout: false
+  end
+
   def welcome
   end
 
