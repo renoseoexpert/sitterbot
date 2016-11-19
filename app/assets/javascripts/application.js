@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require prism
+//= require vendor
+//= require app
