@@ -21,14 +21,15 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.11'
 
-gem 'unicorn'
+#gem 'unicorn'
 gem 'newrelic_rpm'
 gem 'figaro'
 gem 'stripe'
 gem 'resque', '~> 1.22.0'
-gem 'rollbar'
+#gem 'rollbar'
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
