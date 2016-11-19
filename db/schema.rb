@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119195319) do
+ActiveRecord::Schema.define(version: 20161119200655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,18 @@ ActiveRecord::Schema.define(version: 20161119195319) do
 
   add_index "kids", ["parent_id"], name: "index_kids_on_parent_id", using: :btree
 
+  create_table "plans", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.string   "stripe_id",     null: false
+    t.integer  "price"
+    t.string   "interval"
+    t.text     "features"
+    t.boolean  "highlight"
+    t.integer  "display_order"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "sitters", force: :cascade do |t|
     t.integer  "parent_id",                    null: false
     t.boolean  "paid",          default: true
@@ -66,6 +78,22 @@ ActiveRecord::Schema.define(version: 20161119195319) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string   "stripe_id"
+    t.integer  "plan_id",           null: false
+    t.string   "last_four"
+    t.integer  "coupon_id"
+    t.string   "card_type"
+    t.integer  "current_price"
+    t.integer  "parent_id"
+    t.datetime "paid_thru"
+    t.string   "credit_card_token"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "subscriptions", ["plan_id"], name: "index_subscriptions_on_plan_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false

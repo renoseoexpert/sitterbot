@@ -1,5 +1,5 @@
 <p class="text-xs-center">
-  <%= current_consultant.get_selected_plan.name %> Plan
+  <%= current_user.get_selected_plan.name %> Plan
 </p>
 
 <!-- <p class="text&#45;xs&#45;center"> -->
@@ -7,7 +7,7 @@
 <!-- </p> -->
 
 <p class="text-xs-center">
-  <%= number_to_currency(current_consultant.get_selected_plan.price) %> / <small>month</small>
+  <%= number_to_currency(current_user.get_selected_plan.price) %> / <small>month</small>
 </p>
 
 <p class="text-xs-center">
@@ -21,7 +21,7 @@
 
 <form action="/subscription" method="POST" id="payment-form">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="subscription[plan_id]" value="<%= current_consultant.get_selected_plan.id %>">
+  <input type="hidden" name="subscription[plan_id]" value="<%= current_user.get_selected_plan.id %>">
   <span class="payment-errors"></span>
 
   <div class="form-group">

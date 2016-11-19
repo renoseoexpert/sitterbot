@@ -3,26 +3,22 @@ class SubscriptionsController < ApplicationController
   layout 'auth'
 
   def new
-    if current_consultant.trial?
+    if current_user.trial?
       redirect_to '/'
       return
     end
 
     if params[:plan]
-      current_consultant.selected_plan = params[:plan]
-      current_consultant.save
+      current_user.selected_plan = params[:plan]
+      current_user.save
     end
   end
 
   def create
-    # Does the user have a subscription?
-    # - if so see if it matches the planid that was passed
-    service = StartSubscription.new(current_consultant, subscription_params)
+    service = StartSubscription.new(current_user, subscription_params)
     service.call
     if service.valid?
-      login(service.consultant.user)
-      UserMailer.new_subscription(service.consultant.user).deliver_later
-      ActivateDripSubscriberJob.perform_later(service.consultant.user)
+      login(service.user.user)
       redirect_to '/subscribed'
     else
       flash.now[:errors] = service.errors
