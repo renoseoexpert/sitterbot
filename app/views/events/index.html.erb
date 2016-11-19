@@ -20,13 +20,17 @@
           <thead>
             <tr>
               <th>Name</th>
+              <th>From</th>
+              <th>To</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <% @events.each do |event| %>
               <tr>
-                <td><%= link_to event.nickname, event %></td>
+                <td><%= link_to event.name, event %></td>
+                <td><%= event.starts_at %></td>
+                <td><%= event.ends_at %></td>
                 <td>
                   <%= button_to "delete", event_path(event), method: :delete, class: "btn btn-sm btn-danger-outline" %>
                 </td>
