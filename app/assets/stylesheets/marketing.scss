@@ -1,0 +1,18 @@
+$primary-blue: #59c2e6;
+$menu-white: #e8f7f7;
+$redish: #f86942;
+
+@import 'marketing/pricing';
+@import 'marketing/themify-icons';
+@import 'marketing/bootstrap';
+@import 'marketing/owl.carousel.min';
+@import 'marketing/owl.theme.default.min';
+@import 'marketing/magnific-popup';
+@import 'marketing/superfish';
+@import 'marketing/easy-responsive-tabs';
+@import 'marketing/animate';
+@import 'marketing/style';
+
+.plan .head h2 {
+  color: white;
+}
