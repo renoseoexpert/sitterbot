@@ -7,12 +7,14 @@
 #  starts_at     :datetime         not null
 #  ends_at       :datetime         not null
 #  key           :string           not null
-#  sitter_id     :integer          not null
+#  sitter_id     :integer
 #  parent_id     :integer          not null
 #  flat_rate     :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  name          :string
+#  reminded      :boolean          default(FALSE)
+#  started       :boolean          default(FALSE)
 #
 # Indexes
 #
