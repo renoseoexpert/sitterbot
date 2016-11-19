@@ -15,4 +15,5 @@
 #
 
 class Plan < ActiveRecord::Base
+  validates :name, :stripe_id, presence: true
 end

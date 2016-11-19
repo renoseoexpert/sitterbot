@@ -26,7 +26,7 @@ class StartSubscription
 
   def build_subscription
     Subscription.new(@params) do |s|
-      s.user = user
+      s.parent = user
       s.current_price = s.plan.price
       s.paid_thru = 15.days.from_now
     end
@@ -37,7 +37,7 @@ class StartSubscription
       customer = Stripe::Customer.create(
         :source => subscription.credit_card_token,
         :plan => subscription.plan.stripe_id,
-        :email => user.user.email
+        :email => user.email
       )
       Rails.logger.info customer
     rescue Stripe::CardError => e
