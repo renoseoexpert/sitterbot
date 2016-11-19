@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 
   has_many :kids, foreign_key: :parent_id
   has_many :sitters, foreign_key: :parent_id
+  has_many :events, foreign_key: :parent_id
 
   before_validation(on: :create) do
     self.session_token ||= SecureRandom.hex

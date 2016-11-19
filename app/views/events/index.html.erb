@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-md-6">
           <h3 class="title">
-            Kids
-            <a href="/kids/new" class="btn btn-primary btn-sm rounded-s">
+            Events
+            <a href="/events/new" class="btn btn-primary btn-sm rounded-s">
               Add New
             </a>
           </h3>
@@ -19,16 +19,16 @@
         <table class="table ">
           <thead>
             <tr>
-              <th>Nickname</th>
+              <th>Name</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <% @kids.each do |kid| %>
+            <% @events.each do |event| %>
               <tr>
-                <td><%= link_to kid.nickname, kid %></td>
+                <td><%= link_to event.nickname, event %></td>
                 <td>
-                  <%= button_to "delete", kid_path(kid), method: :delete, class: "btn btn-sm btn-danger-outline" %>
+                  <%= button_to "delete", event_path(event), method: :delete, class: "btn btn-sm btn-danger-outline" %>
                 </td>
               </tr>
             <% end %>
