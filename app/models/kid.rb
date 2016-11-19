@@ -19,4 +19,9 @@ class Kid < ActiveRecord::Base
   belongs_to :parent, class_name: 'User', foreign_key: :parent_id
   validates :nickname, :parent, presence: true
   validates :nickname, uniqueness: { scope: :parent }
+
+  def age
+    now = Time.now.utc.to_date
+    now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
 end

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :kids
   resources :sitters
   resources :events
+  resources :subscriptions
 
   # This is for lets encrypt for https
   get '/.well-known/acme-challenge/:id' => 'static_pages#letsencrypt'

@@ -20,13 +20,14 @@
           <thead>
             <tr>
               <th>Nickname</th>
-              <th></th>
+              <th>Age</th>
             </tr>
           </thead>
           <tbody>
             <% @kids.each do |kid| %>
               <tr>
                 <td><%= link_to kid.nickname, kid %></td>
+                <td><%= kid.age %></td>
                 <td>
                   <%= button_to "delete", kid_path(kid), method: :delete, class: "btn btn-sm btn-danger-outline" %>
                 </td>

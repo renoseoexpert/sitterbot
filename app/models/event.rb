@@ -7,11 +7,14 @@
 #  starts_at     :datetime         not null
 #  ends_at       :datetime         not null
 #  key           :string           not null
-#  sitter_id     :integer          not null
+#  sitter_id     :integer
 #  parent_id     :integer          not null
 #  flat_rate     :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  name          :string
+#  reminded      :boolean          default(FALSE)
+#  started       :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -20,9 +23,9 @@
 #
 
 class Event < ActiveRecord::Base
-  validates :parent, :sitter, presence: true
+  validates :parent, presence: true
   belongs_to :sitter
-  belongs_to :parent
+  belongs_to :parent, class_name: 'User', foreign_key: :parent_id
 
   before_validation(on: :create) do
     self.key ||= SecureRandom.hex

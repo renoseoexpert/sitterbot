@@ -31,6 +31,6 @@ class EventsController < ApplicationController
   def event_params
     params
       .require(:event)
-      .permit(:food_included, :starts_at, :ends_at, :key, :flat_rate)
+      .permit(:name, :food_included, :starts_at, :ends_at, :key, :flat_rate)
   end
 end

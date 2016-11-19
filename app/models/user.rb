@@ -23,9 +23,16 @@ class User < ActiveRecord::Base
 
   has_many :kids, foreign_key: :parent_id
   has_many :sitters, foreign_key: :parent_id
+  has_many :events, foreign_key: :parent_id
+  has_one :subscription, foreign_key: :parent_id
 
   before_validation(on: :create) do
     self.session_token ||= SecureRandom.hex
+  end
+
+
+  def get_selected_plan
+    Plan.find_by(stripe_id: selected_plan) || Plan.find_by(stripe_id: 'monthly_plan')
   end
 
   def self.find_by_params(user_params)

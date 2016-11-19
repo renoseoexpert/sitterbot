@@ -28,8 +28,9 @@ gem 'newrelic_rpm'
 gem 'figaro'
 gem 'stripe'
 gem 'resque', '~> 1.22.0'
-#gem 'rollbar'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem 'resque-scheduler'
+gem 'twilio-ruby'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
