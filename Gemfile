@@ -28,6 +28,8 @@ gem 'newrelic_rpm'
 gem 'figaro'
 gem 'stripe'
 gem 'resque', '~> 1.22.0'
+gem 'resque-rollbar'
+gem 'resque-scheduler'
 gem 'twilio-ruby'
 gem 'rollbar'
 gem 'resque', "~> 1.22.0"
