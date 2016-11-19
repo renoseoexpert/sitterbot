@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'users/new'
-
-  get 'users/edit'
-
   root to: 'static_pages#root'
   [
     'contact',
@@ -22,6 +16,8 @@ Rails.application.routes.draw do
   resource :session
   resource :password_reset
   resource :subscription
+  resources :kids
+  resources :sitters
 
   # This is for lets encrypt for https
   get '/.well-known/acme-challenge/:id' => 'static_pages#letsencrypt'
