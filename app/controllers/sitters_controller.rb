@@ -15,14 +15,25 @@ class SittersController < ApplicationController
     @sitter = current_user.sitters.new(sitter_params)
 
     if @sitter.save
-      render json: @sitter
+      if params[:create_and_add]
+        redirect_to new_sitter_path
+      else
+        redirect_to sitters_path
+      end
     else
-      render json: @sitter.errors.full_messages, status: :unprocessable_entity
+      flash.now[:errors] = @sitter.errors.full_messages
+      render :new
     end
   end
 
   def show
     @sitter = current_user.sitters.find(params[:id])
+  end
+
+  def destroy
+    @sitter = current_user.sitters.find(params[:id])
+    @sitter.try(:destroy)
+    redirect_to :back
   end
 
   private
